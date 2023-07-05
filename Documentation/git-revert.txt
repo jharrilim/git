@@ -9,7 +9,7 @@ SYNOPSIS
 --------
 [verse]
 'git revert' [--[no-]edit] [-n] [-m <parent-number>] [-s] [-S[<keyid>]] <commit>...
-'git revert' (--continue | --skip | --abort | --quit)
+'git revert' (--continue | --skip | --abort | --quit) [--no-verify]
 
 DESCRIPTION
 -----------
@@ -87,6 +87,12 @@ more details.
 +
 This is useful when reverting more than one commits'
 effect to your index in a row.
+
+--no-verify::
+	By default, the pre-commit and commit-msg hooks are run when
+	using `git revert --continue`. When `--no-verify` is given,
+	these are bypassed.
+	See also linkgit:githooks[5].
 
 -S[<keyid>]::
 --gpg-sign[=<keyid>]::

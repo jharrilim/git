@@ -4947,6 +4947,9 @@ static int continue_single_pick(struct repository *r, struct replay_opts *opts)
 		 */
 		strvec_pushl(&cmd.args, "--no-edit", "--cleanup=strip", NULL);
 
+	if (opts->no_verify)
+		strvec_push(&cmd.args, "--no-verify");
+
 	return run_command(&cmd);
 }
 

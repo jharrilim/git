@@ -38,6 +38,7 @@ struct replay_opts {
 	/* Boolean options */
 	int record_origin;
 	int no_commit;
+	int no_verify;
 	int signoff;
 	int allow_ff;
 	int allow_rerere_auto;

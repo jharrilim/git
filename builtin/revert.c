@@ -25,14 +25,14 @@
 
 static const char * const revert_usage[] = {
 	N_("git revert [--[no-]edit] [-n] [-m <parent-number>] [-s] [-S[<keyid>]] <commit>..."),
-	N_("git revert (--continue | --skip | --abort | --quit)"),
+	N_("git revert (--continue | --skip | --abort | --quit) [--no-verify]"),
 	NULL
 };
 
 static const char * const cherry_pick_usage[] = {
 	N_("git cherry-pick [--edit] [-n] [-m <parent-number>] [-s] [-x] [--ff]\n"
 	   "                [-S[<keyid>]] <commit>..."),
-	N_("git cherry-pick (--continue | --skip | --abort | --quit)"),
+	N_("git cherry-pick (--continue | --skip | --abort | --quit) [--no-verify]"),
 	NULL
 };
 
@@ -96,6 +96,7 @@ static int run_sequencer(int argc, const char **argv, const char *prefix,
 		OPT_CMDMODE(0, "skip", &cmd, N_("skip current commit and continue"), 's'),
 		OPT_CLEANUP(&cleanup_arg),
 		OPT_BOOL('n', "no-commit", &opts->no_commit, N_("don't automatically commit")),
+		OPT_BOOL(0, "no-verify", &opts->no_verify, N_("bypass pre-commit hook")),
 		OPT_BOOL('e', "edit", &opts->edit, N_("edit the commit message")),
 		OPT_NOOP_NOARG('r', NULL),
 		OPT_BOOL('s', "signoff", &opts->signoff, N_("add a Signed-off-by trailer")),

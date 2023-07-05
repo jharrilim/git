@@ -10,7 +10,7 @@ SYNOPSIS
 [verse]
 'git cherry-pick' [--edit] [-n] [-m <parent-number>] [-s] [-x] [--ff]
 		  [-S[<keyid>]] <commit>...
-'git cherry-pick' (--continue | --skip | --abort | --quit)
+'git cherry-pick' (--continue | --skip | --abort | --quit) [--no-verify]
 
 DESCRIPTION
 -----------
@@ -101,6 +101,12 @@ OPTIONS
 +
 This is useful when cherry-picking more than one commits'
 effect to your index in a row.
+
+--no-verify::
+	By default, the pre-commit and commit-msg hooks are run when
+	using `git cherry-pick --continue`. When `--no-verify` is
+	given, these are bypassed.
+	See also linkgit:githooks[5].
 
 -s::
 --signoff::
